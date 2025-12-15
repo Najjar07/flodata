@@ -3,8 +3,8 @@ import joblib
 import streamlit as st
 
 
-model_path = r"C:\Users\LENOVO\Desktop\sk\course_mode.pkl"
-encoder_path = r"c:\Users\LENOVO\Desktop\sk\course_encode.pkl"
+model_path = "course_mode.pkl"
+encoder_path = "course_encode.pkl"
 model = joblib.load(model_path)
 encoder = joblib.load(encoder_path)
 
@@ -29,5 +29,6 @@ if st.button("recommended course"):
     converted_sample_data = encoder.transform(sample_data)
 
     make_recommendation = model.predict(converted_sample_data)
+
 
     st.success(f"course: {make_recommendation[0]}")
